@@ -4,18 +4,18 @@ import { useContext, useEffect } from 'react';
 import { Context, DispatchContext } from './Context';
 
 function App() {
-  const states = useContext(Context);
-  const dispatch = useContext(DispatchContext);
+  const count = useContext(Context).count;
+  const { setCount, setName } = useContext(DispatchContext);
 
   useEffect(()=>{
     setInterval(()=>{
-      dispatch.setCount(states.count++);
+      setCount();
     },1000)
   },[])
 
   return (
     <div className="App">
-      <div>{ states.count }</div>
+      <div>{ count? count : '우웩' }</div>
     </div>
   );
 }

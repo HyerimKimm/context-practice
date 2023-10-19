@@ -1,7 +1,7 @@
 import { createContext, useMemo, useState } from "react"
 
 const initialState = {
-    count: '',
+    count: 0,
     name: '',
 }
 
@@ -15,10 +15,10 @@ export const DispatchContext = createContext({
 export const Provider = ({children}) => {
     const [state, setState] = useState(initialState);
 
-    const setCount = (count) => {
+    const setCount = () => {
         setState((prevState)=>({
             ...prevState,
-            count : count
+            count : prevState.count+1,
         }));
     }
 
